@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7ef1d038eab549abc9e28f0dca13f, type: 3}
+  m_Name: Chicant
+  m_EditorClassIdentifier: 
+  Name: Chicant
+  description: 
+  frontSprite: {fileID: 21300000, guid: bcdcaa401f32a03459efa63b3aca66c9, type: 3}
+  backSprite: {fileID: 21300000, guid: e8461664708838649a7d541c15ed86dd, type: 3}
+  status: 0
+  type1: 7
+  type2: 0
+  maxHP: 100
+  maxMP: 100
+  Attack: 10
+  Defense: 10
+  Dexterity: 10
+  expYield: 64
+  growthRate: 0
+  catchRate: 255
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: b0527244dd448a6459db045e39b28bb0, type: 2}
+    level: 0
+    mpCost: 2
+  - moveBase: {fileID: 11400000, guid: f38e90d5236b80c4293300e266172e40, type: 2}
+    level: 5
+    mpCost: 2
+  - moveBase: {fileID: 11400000, guid: 9cc96f6a7d131fc45ba0003886b1699f, type: 2}
+    level: 7
+    mpCost: 4
+  noMpMove:
+  - moveBase: {fileID: 11400000, guid: d5a58f937859b944c91093c80bf5d50d, type: 2}

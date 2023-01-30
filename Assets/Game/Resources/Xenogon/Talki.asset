@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7ef1d038eab549abc9e28f0dca13f, type: 3}
+  m_Name: Talki
+  m_EditorClassIdentifier: 
+  Name: Talki
+  description: 
+  frontSprite: {fileID: 21300000, guid: f49c65026e6979740a96f5ea18c86cc2, type: 3}
+  backSprite: {fileID: 21300000, guid: 595766a32ad438947a27f69411ea4249, type: 3}
+  status: 0
+  type1: 5
+  type2: 0
+  maxHP: 100
+  maxMP: 100
+  Attack: 10
+  Defense: 10
+  Dexterity: 10
+  expYield: 350
+  growthRate: 1
+  catchRate: 255
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: b0527244dd448a6459db045e39b28bb0, type: 2}
+    level: 0
+    mpCost: 2
+  - moveBase: {fileID: 11400000, guid: a1291a991587360438490678e1d05ad7, type: 2}
+    level: 8
+    mpCost: 2
+  - moveBase: {fileID: 11400000, guid: a497cc5521963be41ae0a1f73ffc4b7b, type: 2}
+    level: 11
+    mpCost: 2
+  noMpMove:
+  - moveBase: {fileID: 11400000, guid: d5a58f937859b944c91093c80bf5d50d, type: 2}
