@@ -408,6 +408,10 @@ public class Xenogon
     {
         HP = MaxHP;
         OnHpChanged?.Invoke();
+
+#if UNITY_EDITOR
+        Debug.Log("Xenogon.Heal() was called.");
+#endif
     }
     public Moves GetRandomMove() //gets a random move for wild xenogon ai
     {

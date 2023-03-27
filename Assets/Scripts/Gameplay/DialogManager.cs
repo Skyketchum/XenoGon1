@@ -56,17 +56,26 @@ public class DialogManager : MonoBehaviour
 
     public IEnumerator ShowDialog(NPCDialog dialog, Action onFinished=null)
     {
-        yield return new WaitForEndOfFrame();
+        if (dialogBox != null)
+        {
+            yield return new WaitForEndOfFrame();
 
-        OnShowDialog?.Invoke();
+            OnShowDialog?.Invoke();
 
-        IsShowing = true;
-        this.dialog = dialog;
-        onDialogFinished = onFinished;
+            IsShowing = true;
+            this.dialog = dialog;
+            onDialogFinished = onFinished;
 
-        dialogBox.SetActive(true);
-        // dialogText.text = dialog.Lines[0];
-        StartCoroutine(TypeDialog(dialog.Lines[0]));
+            dialogBox.SetActive(true);
+            // dialogText.text = dialog.Lines[0];
+            StartCoroutine(TypeDialog(dialog.Lines[0]));
+        }
+        else
+        {
+#if UNITY_EDITOR
+            Debug.LogWarning("dialogBox has not been assigned yet!");
+#endif
+        }
     }
 
     public void HandleUpdate()

@@ -6,12 +6,12 @@ using UnityEngine;
 //Virtual key word setsup overriding
 public class ItemBase : ScriptableObject
 {
-    [SerializeField] string name;
+    [SerializeField] string itemName;
     [SerializeField] string description;
     [SerializeField] Sprite icon;
     [SerializeField] string usedDialog;
 
-    public virtual string Name => name;
+    public virtual string Name => itemName;
     public string Description => description;
     public Sprite Icon => icon;
     public string UsedDialog => usedDialog;

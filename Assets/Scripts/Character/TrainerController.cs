@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrainerController : MonoBehaviour, Interact, ISavable
 {
-    [SerializeField] string name;
+    [SerializeField] string trainerName;
     [SerializeField] Sprite sprite;
     [SerializeField] GameObject exclamation;
     [SerializeField] GameObject fov;
@@ -174,7 +174,7 @@ public class TrainerController : MonoBehaviour, Interact, ISavable
 
     public string Name
     {
-        get => name;
+        get => trainerName;
     }
 
     public Sprite Sprite

@@ -18,19 +18,25 @@ public class SavingSystem : MonoBehaviour
 
     public void CaptureEntityStates(List<SavableEntity> savableEntities)
     {
-        foreach (SavableEntity savable in savableEntities)
+        if (savableEntities != null)
         {
-            gameState[savable.UniqueId] = savable.CaptureState();
+            foreach (SavableEntity savable in savableEntities)
+            {
+                gameState[savable.UniqueId] = savable.CaptureState();
+            }
         }
     }
 
     public void RestoreEntityStates(List<SavableEntity> savableEntities)
     {
-        foreach (SavableEntity savable in savableEntities)
+        if (savableEntities != null)
         {
-            string id = savable.UniqueId;
-            if (gameState.ContainsKey(id))
-                savable.RestoreState(gameState[id]);
+            foreach (SavableEntity savable in savableEntities)
+            {
+                string id = savable.UniqueId;
+                if (gameState.ContainsKey(id))
+                    savable.RestoreState(gameState[id]);
+            }
         }
     }
 

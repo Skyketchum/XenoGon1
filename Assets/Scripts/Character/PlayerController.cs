@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, ISavable
 {
-    [SerializeField] string name;
+    [SerializeField] string playerName;
     [SerializeField] Sprite sprite;
     [SerializeField] XenogonParty xenogonParty;
 
@@ -49,7 +49,21 @@ public class PlayerController : MonoBehaviour, ISavable
 
         if (Input.GetKeyDown(KeyCode.Z))
             Interact();
-        
+
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Debug.Log("Hurt self by 10 hp.");
+            int i = 0;
+            foreach(Xenogon xenogon in xenogonParty.XenogonList)
+            {
+                xenogon.DecreaseHP(10);
+                Debug.Log("Current HP of Xenogon " + ++i + ": " + xenogon.HP);
+            }
+            xenogonParty.PartyUpdated();
+        }
+#endif
+
     }
 
    
@@ -59,13 +73,15 @@ public class PlayerController : MonoBehaviour, ISavable
         var facingDir = new Vector3(character.Animator.MoveX, character.Animator.MoveY);
         var interactPos = transform.position + facingDir;
 
-        // Debug.DrawLine(transform.position, interactPos, Color.red, 0.5f);
+#if UNITY_EDITOR
+        Debug.DrawLine(transform.position, interactPos, Color.red, 0.5f);
+#endif
 
-        var collider = Physics2D.OverlapCircle(interactPos, 0.3f, GameLayers.i.InteractLayer);
+        Collider2D collider = Physics2D.OverlapCircle(interactPos, 0.3f, GameLayers.i.InteractLayer);
 
         if(collider != null)
         {
-            collider.GetComponent<Interact>()?.Interact(transform, xenogonParty);
+            StartCoroutine(collider.GetComponent<NPC1Controller>()?.Interact(transform));
             character.IsMoving = false;
         }
     }
@@ -109,7 +125,7 @@ public class PlayerController : MonoBehaviour, ISavable
 
     public string Name
     {
-        get => name;
+        get => playerName;
     }
 
     public Sprite Sprite
